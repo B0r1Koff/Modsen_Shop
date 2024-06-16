@@ -1,17 +1,17 @@
 import styled from 'styled-components';
+import { Route, Routes, Link } from 'react-router-dom';
 
-import NxWelcome from './nx-welcome';
 
 const StyledApp = styled.div`
   // Your style here
 `;
 
-export function App() {
+export function ErrorPage() {
   return (
     <StyledApp>
-      <NxWelcome title="org" />
+      <Link to="/">Home</Link>
     </StyledApp>
   );
 }
 
-export default App;
+export default ErrorPage;

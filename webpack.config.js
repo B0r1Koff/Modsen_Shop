@@ -5,9 +5,12 @@ const { join } = require('path');
 module.exports = {
   output: {
     path: join(__dirname, './dist/org'),
+    publicPath: '/'
   },
   devServer: {
     port: 4200,
+    historyApiFallback: true,
+    allowedHosts: "all"
   },
   plugins: [
     new NxAppWebpackPlugin({
@@ -16,7 +19,7 @@ module.exports = {
       main: './src/main.tsx',
       index: './src/index.html',
       baseHref: '/',
-      assets: ['./src/favicon.ico', './src/assets'],
+      assets: ['./src/assets'],
       styles: [],
       outputHashing: process.env['NODE_ENV'] === 'production' ? 'all' : 'none',
       optimization: process.env['NODE_ENV'] === 'production',
