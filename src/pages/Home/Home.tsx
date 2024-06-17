@@ -5,15 +5,21 @@ import Navbar from 'src/components/Navbar/Navbar';
 
 const StyledApp = styled.div`
   display: flex;
-  justify-content: center;
+  align-items: center;
   flex-direction: column;
 `;
+
+const Div = styled.div`
+  margin-top: 20vh;
+`
 
 export function Home() {
   return (
     <StyledApp>
       <Navbar/>
-      aaa
+      <Div>
+        Home
+      </Div>
     </StyledApp>
   );
 }

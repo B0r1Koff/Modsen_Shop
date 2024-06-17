@@ -9,12 +9,13 @@ export const Header = styled.header`
     align-items: start;
     justify-content: center;
     background-color: ${props => props.theme.main_colours.white};
-    padding-top: 3%;
+    padding-top: 2vh;
+    position: absolute;
 `
 
 export const Nav = styled.div`
     width: 86%;
-    height: 52px;
+    height: 6vh;
     display: flex;
     flex-direction: row;
     border-bottom: 2px solid ${theme.light.neutral_colours.grey};
@@ -22,6 +23,7 @@ export const Nav = styled.div`
 `
 
 export const ShopName = styled.h2`
+    cursor: pointer;
     color: ${props => props.theme.main_colours.accent};
     font-family: ${theme.typefaces.font_logo};
     user-select: none;
@@ -50,9 +52,11 @@ export const HeaderButtonsWrapper = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: end;
+    align-items: end;
 `
 
 export const CartButton = styled.div`
+    cursor: pointer;
     height: 52px;
     display: flex;
     align-items: center;
@@ -63,9 +67,12 @@ export const CartButton = styled.div`
 export const CartImg = styled.img`
     width: 24px;
     height: 24px;
+    
 `
 
 export const ShopButton = styled.div`
+    user-select: none;
+    cursor: pointer;
     height: 52px;
     display: flex;
     align-items: center;
@@ -78,6 +85,24 @@ export const ShopButton = styled.div`
     margin: 0px 15px 0px 40px;
 
     @media (width < ${theme.device_sizing.size.tablet}) {
+        display: none;
+    }
+`
+
+export const Path = styled.path`
+    fill: ${props => props.theme.main_colours.black};
+`
+
+export const MenuButton = styled.div`
+    cursor: pointer;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    margin: 0px 15px 0px 12px;
+    user-select: none;
+
+    @media (width > ${theme.device_sizing.size.laptop}) {
         display: none;
     }
 `
