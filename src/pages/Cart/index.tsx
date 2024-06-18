@@ -1,7 +1,6 @@
 import styled from 'styled-components';
-import { Route, Routes, Link } from 'react-router-dom';
-import Navbar from 'src/components/Navbar/Navbar';
-
+import Navbar from 'src/components/Navbar';
+import Footer from 'src/components/Footer';
 
 const StyledApp = styled.div`
   display: flex;
@@ -13,15 +12,16 @@ const Div = styled.div`
   margin-top: 20vh;
 `
 
-export function Shop() {
+export function Cart() {
   return (
     <StyledApp>
       <Navbar/>
       <Div>
-        Shop
+        Cart
       </Div>
+      <Footer/>
     </StyledApp>
   );
 }
 
-export default Shop;
+export default Cart;

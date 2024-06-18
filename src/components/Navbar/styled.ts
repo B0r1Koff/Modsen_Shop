@@ -18,7 +18,7 @@ export const Nav = styled.div`
     height: 6vh;
     display: flex;
     flex-direction: row;
-    border-bottom: 2px solid ${theme.light.neutral_colours.grey};
+    border-bottom: 1px solid ${props => props.theme.neutral_colours.grey};
     align-items: center;
 `
 

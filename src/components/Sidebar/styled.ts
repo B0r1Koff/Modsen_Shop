@@ -12,7 +12,7 @@ export const Bar = styled.div<SideMenuState>`
     position: fixed;
     margin-top: 8vh;
     right: -3000px;
-    transition: right 0.5s ease;
+    transition: right 0.6s ease-in-out;
 
     ${props => props.isOpened && `right: 0px`}
 `
