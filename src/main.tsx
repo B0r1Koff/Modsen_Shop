@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, useEffect } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
@@ -7,6 +7,7 @@ import Cart from './pages/Cart';
 import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
+
 
 const router = createBrowserRouter([
   {

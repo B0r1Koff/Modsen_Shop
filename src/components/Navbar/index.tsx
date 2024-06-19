@@ -4,15 +4,19 @@ import { ThemeProvider } from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
 import ToggleSwitch from '../ToggleSwitch';
 import Sidebar from '../Sidebar';
-import { switchMenuState } from 'src/store/store';
+import { switchMenuState, switchProductsState } from 'src/store/store';
 import theme from 'src/constants/static_theme';
-import { useState } from 'react';
-import { getProducts } from 'src/utils/getProductsForSlider';
+import { useState, useEffect } from 'react';
+import {getProducts} from 'src/utils/getProductsForSlider';
 
 export function Navbar() {
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const [isProfileOpened, setIsProfileOpened] = useState(false)
+
+  useEffect(() => {
+    getProducts().then(function(data){dispatch(switchProductsState(data))})
+  }, [])
 
   function onHomeRedirectClick(path: string){
       if(isProfileOpened){
@@ -31,7 +35,7 @@ export function Navbar() {
     <ThemeProvider theme={useSelector((state: any) => state.currentTheme.value)}>
       <Header>
         <Nav>
-          <HomeLink onClick={e => getProducts()}>
+          <HomeLink onClick={e => onHomeRedirectClick("/")}>
             <ShopName className='ShopName'>Modsen S<ShopNameSpan>HOPPE</ShopNameSpan></ShopName>
           </HomeLink>
           <HeaderButtonsWrapper>

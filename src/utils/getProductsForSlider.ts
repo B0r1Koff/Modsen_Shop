@@ -14,7 +14,6 @@ type GetProductResponse = {
 
   export async function getProducts() {
     try {
-      // 👇️ const response: Response
       const response = await fetch('https://fakestoreapi.com/products', {
         method: 'GET',
         headers: {
@@ -26,7 +25,6 @@ type GetProductResponse = {
         throw new Error(`Error! status: ${response.status}`);
       }
   
-      // 👇️ const result: GetUsersResponse
       return response.json()
       
     } catch (error) {
@@ -39,3 +37,9 @@ type GetProductResponse = {
       }
     }
   }
+
+// export default async function getProducts () {
+//   const response = await fetch('https://fakestoreapi.com/products')
+//   const productList = await response.json()
+//   return productList
+// }

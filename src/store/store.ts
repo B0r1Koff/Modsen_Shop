@@ -12,7 +12,7 @@ const currentThemeSlice = createSlice({
 })
 
 const sidebarSlice = createSlice({
-    name: "sidebar",
+    name: "isMenuOpened",
     initialState: { value: false },
     reducers: {
         switchMenuState: (state, action) => {
@@ -21,12 +21,24 @@ const sidebarSlice = createSlice({
     }
 })
 
+const productsArray = createSlice({
+    name: "products",
+    initialState: { value: [] },
+    reducers: {
+        switchProductsState: (state, action) => {
+            state.value = action.payload                        
+        }
+    }
+})
+
 export const {switchTheme} = currentThemeSlice.actions;
 export const {switchMenuState} = sidebarSlice.actions;
+export const {switchProductsState} = productsArray.actions;
 
 export const store = configureStore({
     reducer: {
         currentTheme: currentThemeSlice.reducer,
         isMenuOpened: sidebarSlice.reducer, 
+        products: productsArray.reducer
     },
 })

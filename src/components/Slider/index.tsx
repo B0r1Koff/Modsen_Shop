@@ -1,17 +1,45 @@
-import { SliderWrapper } from "./styled"
+import { SliderWrapper, SliderScroller, ButtonsWrapper, Button } from "./styled"
 import { useEffect, useState } from 'react';
-import { getProducts, Product } from 'src/utils/getProductsForSlider';
+import { Product } from "src/utils/getProductsForSlider";
+import Slide from "../Slide";
+import { store } from "src/store/store";
 
 export default function Slider(){
-
     const [products, setProducts] = useState<Product[]>([])
-
+    const [sliderIndex, setSliderIndex] = useState(0)
+    
     useEffect(() => {
-        getProducts().then(function(val){setProducts(val)})
+        setTimeout(() => {setProducts(store.getState().products.value.slice(0,5))}, 100)
     }, [products])
 
     return(
-        <SliderWrapper image="https://img-blog.csdn.net/20170428150937177?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveXV3ZW5xaTEyMzQ1Ng==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+       <SliderWrapper>
+            {products.length > 0 &&
+                <SliderScroller>
+                    {
+                        products.map((prod, index) => {
+                            return <Slide key={index} url={prod.image} index={sliderIndex} price={prod.price} title={prod.title}/>
+                        })
+                    }
+                </SliderScroller>
+            
+            }
+            <ButtonsWrapper>
+                {
+                    products.map((_, index) => {
+                        return <Button key={index} onClick={e => setSliderIndex(index)}>
+                            {index === sliderIndex ?
+                                <svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="4.5" cy="4.5" r="3.875" stroke="white" stroke-width="0.75"/>
+                                </svg>
+                                :
+                                <svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="2" cy="2" r="2" fill="white"/>
+                                </svg>
+                        }</Button>
+                    })
+                }
+            </ButtonsWrapper>
         </SliderWrapper>
     )
 }
