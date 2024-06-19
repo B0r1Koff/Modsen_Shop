@@ -1,3 +1,12 @@
+ССЫЛКА НА ДЕПЛОЙ ПРОЕКТА: [https://b0r1koff.github.io](https://66732958803efa75dcdbf16e--borikov-modsen-shop.netlify.app)
+
+
+
+
+
+
+
+
 # Tестовое задание Modsen Shop
 
 ## Содержание
