@@ -8,34 +8,31 @@ import ErrorPage from './pages/ErrorPage/ErrorPage';
 import { store } from './store/store';
 import { Provider } from 'react-redux';
 
-
 const router = createBrowserRouter([
   {
-    path: "/",
-    errorElement: <ErrorPage/>,
+    path: '/',
+    errorElement: <ErrorPage />,
     children: [
       {
-        path: "Shop",
-        element: <Shop/>,
+        path: 'Shop',
+        element: <Shop />,
       },
       {
-        path: "Cart",
-        element: <Cart/>,
+        path: 'Cart',
+        element: <Cart />,
       },
       {
-        path: "",
-        element: <Home/>,
+        path: '',
+        element: <Home />,
       },
-    ]
-  }
+    ],
+  },
 ]);
 
-ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
-).render(
+ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router}/>
+      <RouterProvider router={router} />
     </Provider>
   </StrictMode>
 );

@@ -10,16 +10,14 @@ const StyledApp = styled.div`
 
 const Div = styled.div`
   margin-top: 20vh;
-`
+`;
 
 export function Shop() {
   return (
     <StyledApp>
-      <Navbar/>
-      <Div>
-        Shop
-      </Div>
-      <Footer/>
+      <Navbar />
+      <Div>Shop</Div>
+      <Footer />
     </StyledApp>
   );
 }
