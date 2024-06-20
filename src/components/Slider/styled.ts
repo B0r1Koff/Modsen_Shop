@@ -8,8 +8,8 @@ interface SliderMenuState {
 export const SliderWrapper = styled.div<SliderMenuState>`
   width: 86%;
   height: 60vh;
-  position: relative;
   border-radius: 10px;
+  position: relative;
   display: flex;
   justify-content: center;
   ${(props) => props.isOpened && `

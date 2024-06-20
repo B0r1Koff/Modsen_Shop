@@ -8,24 +8,23 @@ interface SlideImage {
 export const CardContentWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin: 20px 10px 0 10px;
+    border: 2px solid ${props => props.theme.neutral_colours.grey};
+    margin: 20px 10px 0 0px;
     position: relative;
     overflow: hidden;
     @media (width > ${theme.device_sizing.size.laptop}) {
-        width: 377px;
+        width: 30%;
         height: 502px;
-        margin: 20px 10px 0 10px;
+        margin: 20px 10px 0 0px;
     };
     @media (width <= ${theme.device_sizing.size.laptop}) {
-        width: 136px;
+        width: 40%;
         height: 218px;
         margin: 20px 2px 0 2px;
     };
 `
 
 export const Image = styled.div<SlideImage>`
-    width: 100%;
-    height: 100%;
     background: url(${(props) => props.image});
     background-size: contain;
     background-repeat: no-repeat;
@@ -37,11 +36,11 @@ export const Image = styled.div<SlideImage>`
     justify-content: end;
 
     @media (width > ${theme.device_sizing.size.laptop}) {
-        width: 377px;
+        width: 100%;
         height: 380px;
     };
     @media (width <= ${theme.device_sizing.size.laptop}) {
-        width: 136px;
+        width: 100%;
         height: 136px;
     };
 `
@@ -99,7 +98,7 @@ export const AddToCartButton = styled.div`
     justify-content: center;
 
     ${CardContentWrapper}:hover && {
-    @media (width >= ${theme.device_sizing.size.laptop}) {
+        @media (width >= ${theme.device_sizing.size.laptop}) {
         height: 380px;
     }
     @media (width <= ${theme.device_sizing.size.tablet}) {

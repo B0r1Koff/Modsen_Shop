@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import theme from 'src/constants/static_theme';
 
 export const Header = styled.header`
-  width: 100vw;
+  width: 100%;
   height: fit-content;
   margin: 0%;
   display: flex;

@@ -6,16 +6,17 @@ interface SliderMenuState {
 }
 
 export const ShopTheLatestWrapper = styled.div<SliderMenuState>`
-    width: 86vw;
+    width: 86%;
     height: fit-content;
+    margin: 0;
     margin-top: 30px;
     display: flex;
+    align-items: center;
     flex-direction: column;
     background-color: ${theme.light.main_colours.white};
-    border-radius: 5px;
     ${(props) => props.isOpened && `
         display: none;
-    `}
+  `}
 `
 
 export const HeadButtons = styled.div`
@@ -56,10 +57,10 @@ export const ViewAllLink = styled.div`
 `
 
 export const CardsContainer = styled.div`
-    width: 86vw;
-    height: fit-content;
+    width: 100%;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
     margin-top: 20px;
 `

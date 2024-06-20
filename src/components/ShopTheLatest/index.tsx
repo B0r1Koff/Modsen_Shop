@@ -14,7 +14,7 @@ export default function ShopTheLatest(){
     useEffect(() => {
         setTimeout(() => {
           setProducts(store.getState().products.value.slice(0,6));
-        }, 100);
+        }, 0);
       }, [products]);
 
     return(
