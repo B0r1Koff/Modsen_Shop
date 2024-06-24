@@ -9,7 +9,6 @@ export const Header = styled.header`
   justify-content: center;
   background-color: ${(props) => props.theme.main_colours.white};
   padding-top: 2vh;
-  position: absolute;
 `;
 
 export const Nav = styled.div`

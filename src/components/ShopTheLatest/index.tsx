@@ -11,6 +11,7 @@ import {
   ViewAllLink,
   CardsContainer,
 } from './styled';
+import { SHOP_ROUTE } from 'src/constants/routes';
 
 export default function ShopTheLatest() {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ export default function ShopTheLatest() {
       >
         <HeadButtons>
           <HeadLink>Shop The Latest</HeadLink>
-          <ViewAllLink onClick={() => navigate('/Shop')}>View All</ViewAllLink>
+          <ViewAllLink onClick={() => navigate(SHOP_ROUTE)}>View All</ViewAllLink>
         </HeadButtons>
         {products.length > 0 && (
           <CardsContainer>
@@ -39,6 +40,7 @@ export default function ShopTheLatest() {
                   url={image}
                   price={price}
                   name={title}
+                  id={id}
                 />
               );
             })}

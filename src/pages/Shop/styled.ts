@@ -20,7 +20,6 @@ interface isFiltersOpened{
 
 
 export const ContentWrapper = styled.div<ShopMenuState>`
-  margin-top: 10vh;
   width: 86%;
   display: flex;
   flex-direction: column;

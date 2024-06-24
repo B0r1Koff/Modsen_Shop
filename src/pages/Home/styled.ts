@@ -10,7 +10,6 @@ export const ContentWrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  margin: 8vh 0 0 0;
   display: flex;
   flex-direction: column;
   width: 100%;

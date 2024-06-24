@@ -20,10 +20,12 @@ import {
   LowElementsWrapper,
   SearchBarWrapper,
   HighElementsWrapper,
-  PriceText
+  PriceText,
+  Path
 } from './styled';
 import { MAX_PRODUCT_PRICE, MIN_PRODUCT_PRICE } from 'src/constants/price';
 import {ReactComponent as LoopeIcon} from "../../assets/LUPA.svg"
+import { LoupeIcon } from 'src/assets/Loupe';
 
 export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -51,7 +53,7 @@ export default function Shop() {
               <HighElementsWrapper isFiltersSectionOpened={isFilterSectionOpen}>
                 <SearchBarWrapper>
                   <SearchBar placeholder="Search..." onChange={e => {setProductNameInput(e.target.value)}}/>
-                  <LoopeIcon/>
+                  <LoupeIcon Path={Path}/>
                 </SearchBarWrapper>
                 <FilterSelect onChange={e => setShopByValue(e.target.value)}>
                   <option hidden={shopByValue === "none"}>{shopByValue === "none" ? "Shop By" : "none"}</option>
@@ -89,6 +91,7 @@ export default function Shop() {
                         url={image}
                         price={price}
                         name={title}
+                        id={id}
                       />
                     );
                   }

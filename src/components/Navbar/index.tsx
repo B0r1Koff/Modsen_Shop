@@ -6,7 +6,6 @@ import Sidebar from '../Sidebar';
 import ToggleSwitch from '../ToggleSwitch';
 import {ReactComponent as CrossIcon} from "../../assets/Cross.svg"
 import {ReactComponent as MenuIcon} from "../../assets/Menu.svg"
-import {ReactComponent as CartIcon} from "../../assets/shopping_cart.svg"
 import {
   Nav,
   HomeLink,
@@ -17,7 +16,10 @@ import {
   CartButton,
   ShopButton,
   MenuButton,
+  Path
 } from './styled';
+import { CART_ROUTE, HOME_ROUTE, SHOP_ROUTE } from 'src/constants/routes';
+import { CartIcon } from 'src/assets/Cart';
 
 export function Navbar() {
   const navigate = useNavigate();
@@ -28,18 +30,18 @@ export function Navbar() {
     <>
       <Header>
         <Nav>
-          <HomeLink onClick={() => onHomeRedirectClick('/')}>
+          <HomeLink onClick={() => onHomeRedirectClick(HOME_ROUTE)}>
             <ShopName className="ShopName">
               Modsen S<ShopNameSpan>HOPPE</ShopNameSpan>
             </ShopName>
           </HomeLink>
           <HeaderButtonsWrapper>
-            <ShopButton onClick={() => onHomeRedirectClick('/Shop')}>
+            <ShopButton onClick={() => onHomeRedirectClick(SHOP_ROUTE)}>
               Shop
             </ShopButton>
             <ToggleSwitch />
-            <CartButton onClick={() => navigate('/Cart')}>
-              <CartIcon/>
+            <CartButton onClick={() => navigate(CART_ROUTE)}>
+              <CartIcon Path={Path}/>  
             </CartButton>
             <MenuButton onClick={() => onMenuButtonClick()}>
               {!isProfileOpened ? (
