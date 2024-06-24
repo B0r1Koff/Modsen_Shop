@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'src/constants/static_theme';
 
 export const Header = styled.header`
   width: 100%;
@@ -25,16 +24,16 @@ export const Nav = styled.div`
 export const ShopName = styled.h2`
   cursor: pointer;
   color: ${(props) => props.theme.main_colours.accent};
-  font-family: ${theme.typefaces.font_logo};
+  font-family: ${(props) => props.theme.typefaces.font_logo};
   user-select: none;
 
-  @media (width > ${theme.device_sizing.size.laptop}) {
-    font-size: ${theme.typefaces.pc.logo.size};
-    font-weight: ${theme.typefaces.pc.logo.weight};
+  @media (width > ${(props) => props.theme.device_sizing.size.laptop}) {
+    font-size: ${(props) => props.theme.typefaces.pc.logo.size};
+    font-weight: ${(props) => props.theme.typefaces.pc.logo.weight};
   }
-  @media (width < ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.logo.size};
-    font-weight: ${theme.typefaces.mobile.logo.weight};
+  @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.logo.size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.logo.weight};
   }
 `;
 
@@ -62,6 +61,10 @@ export const CartButton = styled.div`
   align-items: center;
   text-decoration: none;
   margin: 0px 15px 0px 40px;
+  
+  >.svg{
+    fill: ${(props) => props.theme.main_colours.black};
+  }
 `;
 
 export const CartImg = styled.img`
@@ -77,13 +80,13 @@ export const ShopButton = styled.div`
   align-items: center;
   text-decoration: none;
   color: ${(props) => props.theme.main_colours.black};
-  font-family: ${theme.typefaces.font_primary};
-  font-size: ${theme.typefaces.pc.heading[5].size};
-  font-weight: ${theme.typefaces.pc.heading[5].weight};
-  line-height: ${theme.typefaces.pc.heading[5].line_height};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+  font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+  line-height: ${(props) => props.theme.typefaces.pc.heading[5].line_height};
   margin: 0px 15px 0px 40px;
 
-  @media (width < ${theme.device_sizing.size.tablet}) {
+  @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
     display: none;
   }
 `;
@@ -101,7 +104,11 @@ export const MenuButton = styled.div`
   margin: 0px 15px 0px 12px;
   user-select: none;
 
-  @media (width > ${theme.device_sizing.size.laptop}) {
+  @media (width > ${(props) => props.theme.device_sizing.size.laptop}) {
     display: none;
+  }
+
+  >.svg{
+    fill: ${(props) => props.theme.main_colours.black};
   }
 `;

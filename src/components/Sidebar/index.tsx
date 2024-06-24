@@ -1,33 +1,30 @@
-import { ThemeProvider } from 'styled-components';
-import { Bar, ButtonsWrapper, Button } from './styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
-import { switchMenuState } from 'src/store/store';
+import { switchMenuState } from 'src/store/sidebar/sidebarSlice';
+import { Bar, ButtonsWrapper, Button } from './styled';
 
-export default function Sidebar(props: {
+interface Props{
   isProfileOpened: boolean;
   setIsProfileOpened: React.Dispatch<React.SetStateAction<boolean>>;
-}) {
+}
+
+export default function Sidebar({isProfileOpened, setIsProfileOpened} : Props) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
   function onRedirectClick(path: string) {
-    dispatch(switchMenuState(!props.isProfileOpened));
-    props.setIsProfileOpened(!props.isProfileOpened);
+    dispatch(switchMenuState(!isProfileOpened));
+    setIsProfileOpened(!isProfileOpened);
     navigate(path);
   }
 
   return (
-    <ThemeProvider
-      theme={useSelector((state: any) => state.currentTheme.value)}
-    >
       <Bar isOpened={useSelector((state: any) => state.isMenuOpened.value)}>
         <ButtonsWrapper>
-          <Button onClick={(e) => onRedirectClick('/')}>Home</Button>
-          <Button onClick={(e) => onRedirectClick('/Shop')}>Shop</Button>
-          <Button onClick={(e) => onRedirectClick('/')}>Contact</Button>
+          <Button onClick={() => onRedirectClick('/')}>Home</Button>
+          <Button onClick={() => onRedirectClick('/Shop')}>Shop</Button>
+          <Button onClick={() => onRedirectClick('/')}>Contact</Button>
         </ButtonsWrapper>
       </Bar>
-    </ThemeProvider>
   );
 }

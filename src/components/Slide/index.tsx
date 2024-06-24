@@ -6,18 +6,19 @@ import {
   Price,
 } from './styled';
 
-export default function Slide(props: {
+interface Props{
   url: string;
   index: number;
   price: number;
   title: string;
-}) {
-  
+}
+
+export default function Slide({url, index, price, title} : Props) {
   return (
-    <SlideWrapper image={props.url} index={props.index}>
+    <SlideWrapper image={url} index={index}>
       <DescriptionWrapper>
-        <Text>{props.title}</Text>
-        <Price>$ {props.price}</Price>
+        <Text>{title}</Text>
+        <Price>$ {price}</Price>
         <Button>View Product</Button>
       </DescriptionWrapper>
     </SlideWrapper>

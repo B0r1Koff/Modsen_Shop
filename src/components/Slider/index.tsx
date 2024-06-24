@@ -1,14 +1,16 @@
+import { useEffect, useState } from 'react';
+import { Product } from 'src/utils/getProductsForSlider';
+import { store } from 'src/store/store';
+import { useSelector } from 'react-redux';
+import Slide from '../Slide';
 import {
   SliderWrapper,
   SliderScroller,
   ButtonsWrapper,
   Button,
 } from './styled';
-import { useEffect, useState } from 'react';
-import { Product } from 'src/utils/getProductsForSlider';
-import Slide from '../Slide';
-import { store } from 'src/store/store';
-import { useSelector, useDispatch } from 'react-redux';
+import {ReactComponent as EllipseIcon} from "../../assets/Ellipse.svg"
+import {ReactComponent as EllipseActiveIcon} from "../../assets/EllipseActive.svg"
 
 export default function Slider() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -21,13 +23,15 @@ export default function Slider() {
   }, [products]);
 
   return (
-    <SliderWrapper isOpened={useSelector((state: any) => state.isMenuOpened.value)}>
+    <SliderWrapper
+      isOpened={useSelector((state: any) => state.isMenuOpened.value)}
+    >
       {products.length > 0 && (
         <SliderScroller>
-          {products.map((prod, index) => {
+          {products.map((prod) => {
             return (
               <Slide
-                key={index}
+                key={prod.id}
                 url={prod.image}
                 index={sliderIndex}
                 price={prod.price}
@@ -40,33 +44,11 @@ export default function Slider() {
       <ButtonsWrapper>
         {products.map((_, index) => {
           return (
-            <Button key={index} onClick={(e) => setSliderIndex(index)}>
+            <Button key={index} onClick={() => setSliderIndex(index)}>
               {index === sliderIndex ? (
-                <svg
-                  width="9"
-                  height="9"
-                  viewBox="0 0 9 9"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle
-                    cx="4.5"
-                    cy="4.5"
-                    r="3.875"
-                    stroke="white"
-                    stroke-width="0.75"
-                  />
-                </svg>
+                <EllipseActiveIcon/>
               ) : (
-                <svg
-                  width="4"
-                  height="4"
-                  viewBox="0 0 4 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <circle cx="2" cy="2" r="2" fill="white" />
-                </svg>
+                <EllipseIcon/>
               )}
             </Button>
           );

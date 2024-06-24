@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import theme from 'src/constants/static_theme';
 
 interface SlideImage {
   image: string;
@@ -33,17 +32,17 @@ export const DescriptionWrapper = styled.div`
 
 export const Text = styled.div`
   user-select: none;
-  font-family: ${theme.typefaces.font_primary};
-  color: ${theme.light.main_colours.white};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  color: ${(props) => props.theme.immutable_colors.white};
 
-  @media (width > ${theme.device_sizing.size.laptop}) {
-    font-size: ${theme.typefaces.pc.heading[2].size};
-    font-weight: ${theme.typefaces.pc.heading[2].weight};
+  @media (width > ${(props) => props.theme.device_sizing.size.laptop}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[2].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[2].weight};
   }
 
-  @media (width < ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.heading[1].size};
-    font-weight: ${theme.typefaces.mobile.heading[1].weight};
+  @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.heading[1].size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.heading[1].weight};
   }
 
   padding-bottom: 10px;
@@ -52,17 +51,17 @@ export const Text = styled.div`
 
 export const Price = styled.div`
   user-select: none;
-  font-family: ${theme.typefaces.font_primary};
-  color: ${theme.light.main_colours.white};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  color: ${(props) => props.theme.immutable_colors.white};
 
-  @media (width > ${theme.device_sizing.size.laptop}) {
-    font-size: ${theme.typefaces.pc.heading[5].size};
-    font-weight: ${theme.typefaces.pc.heading[5].weight};
+  @media (width > ${(props) => props.theme.device_sizing.size.laptop}) {
+    font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+    font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
   }
 
-  @media (width < ${theme.device_sizing.size.tablet}) {
-    font-size: ${theme.typefaces.mobile.heading[3].size};
-    font-weight: ${theme.typefaces.mobile.heading[3].weight};
+  @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
+    font-size: ${(props) => props.theme.typefaces.mobile.heading[3].size};
+    font-weight: ${(props) => props.theme.typefaces.mobile.heading[3].weight};
   }
 
   padding-bottom: 10px;
@@ -72,21 +71,21 @@ export const Price = styled.div`
 export const Button = styled.button`
   user-select: none;
   cursor: pointer;
-  font-family: ${theme.typefaces.font_primary};
-  font-size: ${theme.typefaces.mobile.heading[3].size};
-  font-weight: ${theme.typefaces.mobile.heading[3].weight};
-  color: ${theme.light.main_colours.white};
+  font-family: ${(props) => props.theme.typefaces.font_primary};
+  font-size: ${(props) => props.theme.typefaces.mobile.heading[3].size};
+  font-weight: ${(props) => props.theme.typefaces.mobile.heading[3].weight};
+  color: ${(props) => props.theme.immutable_colors.white};
   background: transparent;
   width: 100px;
   height: 40px;
   border: none;
-  border: 1px solid ${theme.light.main_colours.white};
+  border: 1px solid ${(props) => props.theme.immutable_colors.white};
   border-radius: 5px;
   margin-left: 15px;
 
   :hover {
-    color: ${theme.light.main_colours.black};
-    border: 1px solid ${theme.light.main_colours.black};
-    background: ${theme.light.main_colours.white};
+    color: ${(props) => props.theme.immutable_colors.black};
+    border: 1px solid ${(props) => props.theme.immutable_colors.black};
+    background: ${(props) => props.theme.immutable_colors.white};
   }
 `;

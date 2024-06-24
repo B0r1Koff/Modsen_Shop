@@ -6,7 +6,7 @@ export const ContentWrapper = styled.div`
   flex-direction: column;
   width: 100%;
   height: fit-content;
-  background-color: ${props => props.theme.main_colours.white};
+  background-color: ${(props) => props.theme.main_colours.white};
 `;
 
 export const Content = styled.div`

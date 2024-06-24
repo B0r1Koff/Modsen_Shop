@@ -12,5 +12,3 @@ export function ErrorPage() {
     </StyledApp>
   );
 }
-
-export default ErrorPage;

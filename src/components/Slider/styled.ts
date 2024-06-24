@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import theme from 'src/constants/static_theme';
 
 interface SliderMenuState {
-    isOpened: boolean;
+  isOpened: boolean;
 }
 
 export const SliderWrapper = styled.div<SliderMenuState>`
@@ -12,12 +11,19 @@ export const SliderWrapper = styled.div<SliderMenuState>`
   position: relative;
   display: flex;
   justify-content: center;
-  ${(props) => props.isOpened && `
+  ${(props) =>
+    props.isOpened &&
+    `
   display: none;
   `}
-  background-color: ${theme.light.main_colours.white};
+  background-color: ${(props) => props.theme.immutable_colors.white};
   margin-top: 5px;
-  
+  animation: ani 1s forwards;
+
+  @keyframes ani {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+  }
 `;
 
 export const SliderScroller = styled.div`

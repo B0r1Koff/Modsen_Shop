@@ -36,9 +36,3 @@ export async function getProducts() {
     }
   }
 }
-
-// export default async function getProducts () {
-//   const response = await fetch('https://fakestoreapi.com/products')
-//   const productList = await response.json()
-//   return productList
-// }
