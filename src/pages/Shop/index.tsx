@@ -24,7 +24,6 @@ import {
   Path
 } from './styled';
 import { MAX_PRODUCT_PRICE, MIN_PRODUCT_PRICE } from 'src/constants/price';
-import {ReactComponent as LoopeIcon} from "../../assets/LUPA.svg"
 import { LoupeIcon } from 'src/assets/Loupe';
 
 export default function Shop() {
@@ -32,6 +31,7 @@ export default function Shop() {
   const [minPrice, setMinPrice] = useState(MIN_PRODUCT_PRICE);
   const [maxPrice, setMaxPrice] = useState(MAX_PRODUCT_PRICE);
   const [shopByValue, setShopByValue] = useState("none")
+  const [sortByValue, setSortByValue] = useState("none")
   const [productNameInput, setProductNameInput] = useState("")
   const [isFilterSectionOpen, setIsFilterSectionOpen] = useState(false)
 
@@ -59,10 +59,10 @@ export default function Shop() {
                   <option hidden={shopByValue === "none"}>{shopByValue === "none" ? "Shop By" : "none"}</option>
                   {createShopByOptions()}
                 </FilterSelect>
-                <FilterSelect>
-                  <option>Sort By</option>
+                <FilterSelect onChange={e => setSortByValue(e.target.value)}>
+                  <option hidden={sortByValue === "none"}>{sortByValue === "none" ? "Sort By" : "none"}</option>
+                  {createSortByOptions()}
                 </FilterSelect>
-
                 <RangeInputComponent
                   max={maxPrice}
                   min={minPrice}
@@ -83,8 +83,8 @@ export default function Shop() {
             </FiltersWrapper>
             {products.length > 0 && (
               <CardsWrapper isFiltersSectionOpened={isFilterSectionOpen}>
-                {products.map(({id, image, price, title, category}) => {
-                  if (checkFilters(category, title, price)) {
+                {products.map(({id, image, price, title, category, rating}) => {
+                  if (checkFilters(category, title, price, rating.rate)) {
                     return (
                       <ProductCard
                         key={id}
@@ -105,19 +105,39 @@ export default function Shop() {
   );
 
   function createShopByOptions(){
-    return Array.from(new Set(products.map(product => {return product.category}))).map(element => {return <option key={element}>{element}</option>})
+    return Array.from(
+      new Set(
+        products.map(
+          product => {
+            return product.category
+          }
+        )
+      )
+    )
+    .map(element => {return <option key={element}>{element}</option>})
   }
 
   function createSortByOptions(){
-    return Array.from(new Set(products.map(product => {return product.rating}))).map(element => {return <option>{element.toString()}</option>})
+    return Array.from(
+      new Set(
+        products.map(
+          product => {
+            return Math.ceil(product.rating.rate)
+          }
+        )
+      )
+    )
+    .sort(function(a: number, b: number){return b-a})
+    .map(element => {return <option>{element}</option>})
   }
 
-  function checkFilters(category: string, title: string, price: number){
+  function checkFilters(category: string, title: string, price: number, rating: number){
       if (
         price <= maxPrice &&
         price >= minPrice &&
         title.toLowerCase().includes(productNameInput.toLowerCase()) &&
-        (shopByValue !== "none" ? category === shopByValue : category)
+        (shopByValue !== "none" ? category === shopByValue : category) &&
+        (sortByValue !== "none" ? rating >= Number(sortByValue) && rating < Number(sortByValue) + 1 : rating)
       ) {
         return true
       }

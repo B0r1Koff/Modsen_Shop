@@ -5,7 +5,10 @@ export interface Product {
   description: string;
   category: string;
   image: string;
-  rating: object;
+  rating: {
+    rate: number,
+    count: number
+  };
 }
 
 type GetProductResponse = {

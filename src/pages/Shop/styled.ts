@@ -32,6 +32,7 @@ export const ContentWrapper = styled.div<ShopMenuState>`
 `;
 
 export const Text = styled.p`
+  user-select: none;
   width: 100%;
   text-align: start;
   font-family: ${(props) => props.theme.typefaces.font_primary};

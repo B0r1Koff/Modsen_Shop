@@ -16,13 +16,14 @@ import {
   Line,
   EmailButton,
   EmailWithArrowWrapper,
+  Path
 } from './styled';
 import Arrow from "../../assets/Arrow.svg"
 import {ReactComponent as ArrowIcon} from "../../assets/Arrow.svg"
-import {ReactComponent as LinkedInIcon} from "../../assets/LinkedIN.svg"
-import {ReactComponent as FacebookIcon} from "../../assets/Facebook.svg"
-import {ReactComponent as InstagramIcon} from "../../assets/Instagram.svg"
-import {ReactComponent as TwitterIcon} from "../../assets/Twitter.svg"
+import { TwitterIcon } from 'src/assets/Twitter';
+import { InstagramIcon } from 'src/assets/Instagram';
+import { FacebookIcon } from 'src/assets/Facebook';
+import { LinkedInIcon } from 'src/assets/LinkedIn';
 
 export default function Footer() {
   return (
@@ -52,10 +53,10 @@ export default function Footer() {
           <IconsWrapper>
             <IconsText>Follow us</IconsText>
             <Line />
-            <LinkedInIcon/>
-            <FacebookIcon/>
-            <InstagramIcon/>
-            <TwitterIcon/>
+            <LinkedInIcon Path={Path}/>
+            <FacebookIcon Path={Path}/>
+            <InstagramIcon Path={Path}/>
+            <TwitterIcon Path={Path}/>
           </IconsWrapper>
           <Text>
             <Span>© 2023 Shelly.</Span> Terms of use <Span>and</Span> privacy

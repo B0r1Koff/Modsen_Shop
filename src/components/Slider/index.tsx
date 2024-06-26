@@ -32,6 +32,7 @@ export default function Slider() {
             return (
               <Slide
                 key={prod.id}
+                id={prod.id}
                 url={prod.image}
                 index={sliderIndex}
                 price={prod.price}
