@@ -19,6 +19,7 @@ export const DataWrapper = styled.div`
 
     >*{
         margin: 0%;
+        user-select: none;
     }
 
 `

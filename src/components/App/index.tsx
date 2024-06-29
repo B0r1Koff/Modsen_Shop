@@ -11,14 +11,19 @@ import { useDispatch } from "react-redux"
 import { switchProductsState } from "src/store/products/productsSlice"
 import { CART_ROUTE, ERROR_ROUTE, HOME_ROUTE, PRODUCT_ROUTE, SHOP_ROUTE } from "src/constants/routes"
 import { ProductPage } from "src/pages/Product"
+import { RESERVE_PRODUCTS_ARRAY } from "src/constants/reserveProducts"
+import { store } from "src/store/store"
 
 export function App(){
     const dispatch = useDispatch();
 
     useEffect(() => {
         getProducts().then(function (data) {
-          dispatch(switchProductsState(data));
+            dispatch(switchProductsState(data));
         });
+        if(store.getState().products.value.length === 0){
+            dispatch(switchProductsState(RESERVE_PRODUCTS_ARRAY));
+        }
       }, []);
 
     return(
@@ -29,7 +34,7 @@ export function App(){
                     <Route path={HOME_ROUTE} element={<Home/>} />
                     <Route path={SHOP_ROUTE} element={<Shop/>} />
                     <Route path={CART_ROUTE} element={<Cart/>} />
-                    <Route path={PRODUCT_ROUTE + "/:id"} element={<ProductPage/>}/>
+                    <Route path={PRODUCT_ROUTE + "/:productId"} element={<ProductPage/>}/>
                 </Routes>
             </>
         </ThemeProvider>)

@@ -1,0 +1,248 @@
+import { Product } from "src/utils/getProductsForSlider"
+
+export const RESERVE_PRODUCTS_ARRAY : Product[] = [
+    // Electronics
+  {
+    id: 1,
+    title: 'Apple iPhone 12',
+    price: 999,
+    description: 'Apple iPhone 12 with 64GB memory',
+    category: 'Electronics',
+    image: 'https://example.com/iphone12.jpg',
+    rating: {
+      rate: 4.7,
+      count: 215,
+    },
+  },
+  {
+    id: 2,
+    title: 'Samsung Galaxy S21',
+    price: 799,
+    description: 'Samsung Galaxy S21 with 128GB memory',
+    category: 'Electronics',
+    image: 'https://example.com/galaxys21.jpg',
+    rating: {
+      rate: 4.6,
+      count: 305,
+    },
+  },
+  {
+    id: 3,
+    title: 'Sony WH-1000XM4',
+    price: 349,
+    description: 'Sony WH-1000XM4 Wireless Noise Canceling Headphones',
+    category: 'Electronics',
+    image: 'https://example.com/sony-wh-1000xm4.jpg',
+    rating: {
+      rate: 4.8,
+      count: 753,
+    },
+  },
+  {
+    id: 4,
+    title: 'Apple MacBook Pro 16"',
+    price: 2399,
+    description: 'Apple MacBook Pro 16" with Touch Bar, 1TB SSD',
+    category: 'Electronics',
+    image: 'https://example.com/macbookpro16.jpg',
+    rating: {
+      rate: 4.5,
+      count: 402,
+    },
+  },
+  {
+    id: 5,
+    title: 'Samsung 55" QLED 4K Smart TV',
+    price: 1299,
+    description: 'Samsung 55" QLED 4K Smart TV (QN55Q60TAFXZA)',
+    category: 'Electronics',
+    image: 'https://example.com/samsung-qled-tv.jpg',
+    rating: {
+      rate: 4.7,
+      count: 631,
+    },
+  },
+  // Clothing
+  {
+    id: 6,
+    title: 'Levi\'s 501 Original Fit Jeans',
+    price: 69,
+    description: 'Levi\'s 501 Original Fit Jeans - Dark Wash',
+    category: 'Clothing',
+    image: 'https://example.com/levis-501.jpg',
+    rating: {
+      rate: 4.6,
+      count: 874,
+    },
+  },
+  {
+    id: 7,
+    title: 'Adidas Ultra Boost Running Shoes',
+    price: 180,
+    description: 'Adidas Ultra Boost Running Shoes - Men\'s',
+    category: 'Clothing',
+    image: 'https://example.com/adidas-ultraboost.jpg',
+    rating: {
+      rate: 4.7,
+      count: 1321,
+    },
+  },
+  {
+    id: 8,
+    title: 'Patagonia Better Sweater Fleece Jacket',
+    price: 139,
+    description: 'Patagonia Better Sweater Fleece Jacket - Men\'s',
+    category: 'Clothing',
+    image: 'https://example.com/patagonia-better-sweater.jpg',
+    rating: {
+      rate: 4.5,
+      count: 562,
+    },
+  },
+  {
+    id: 9,
+    title: 'Ray-Ban Classic Aviator Sunglasses',
+    price: 154,
+    description: 'Ray-Ban Classic Aviator Sunglasses - Gold/Green',
+    category: 'Clothing',
+    image: 'https://example.com/rayban-aviator.jpg',
+    rating: {
+      rate: 4.8,
+      count: 2463,
+    },
+  },
+  {
+    id: 10,
+    title: 'Nike Air Force 1 Sneakers',
+    price: 90,
+    description: 'Nike Air Force 1 Sneakers - White/White',
+    category: 'Clothing',
+    image: 'https://example.com/nike-airforce1.jpg',
+    rating: {
+      rate: 4.6,
+      count: 3712,
+    },
+  },
+  // Home Appliances
+  {
+    id: 11,
+    title: 'Dyson Cyclone V10 Absolute Cordless Vacuum',
+    price: 549,
+    description: 'Dyson Cyclone V10 Absolute Cordless Vacuum',
+    category: 'Home Appliances',
+    image: 'https://example.com/dyson-cyclone-v10.jpg',
+    rating: {
+      rate: 4.5,
+      count: 1724,
+    },
+  },
+  {
+    id: 12,
+    title: 'Instant Pot Duo Nova 7-in-1 Pressure Cooker',
+    price: 99,
+    description: 'Instant Pot Duo Nova 7-in-1 Pressure Cooker, 6 Quart',
+    category: 'Home Appliances',
+    image: 'https://example.com/instantpot-duonova.jpg',
+    rating: {
+      rate: 4.7,
+      count: 46312,
+    },
+  },
+  {
+    id: 13,
+    title: 'Philips Sonicare DiamondClean Smart Electric Toothbrush',
+    price: 229,
+    description: 'Philips Sonicare DiamondClean Smart Electric Toothbrush',
+    category: 'Home Appliances',
+    image: 'https://example.com/philips-sonicare-diamondclean.jpg',
+    rating: {
+      rate: 4.6,
+      count: 3852,
+    },
+  },
+  {
+    id: 14,
+    title: 'Breville Barista Express Espresso Machine',
+    price: 699,
+    description: 'Breville Barista Express Espresso Machine',
+    category: 'Home Appliances',
+    image: 'https://example.com/breville-barista-express.jpg',
+    rating: {
+      rate: 4.5,
+      count: 2971,
+    },
+  },
+  {
+    id: 15,
+    title: 'Vitamix A3500 Ascent Series Smart Blender',
+    price: 599,
+    description: 'Vitamix A3500 Ascent Series Smart Blender',
+    category: 'Home Appliances',
+    image: 'https://example.com/vitamix-a3500.jpg',
+    rating: {
+      rate: 4.7,
+      count: 1276,
+    },
+  },
+  // Sports
+  {
+    id: 16,
+    title: 'Callaway Mavrik Max Driver',
+    price: 499,
+    description: 'Callaway Mavrik Max Driver - Golf Club',
+    category: 'Sports',
+    image: 'https://example.com/callaway-mavrik-max.jpg',
+    rating: {
+      rate: 4.6,
+      count: 712,
+    },
+  },
+  {
+    id: 17,
+    title: 'Yeti Tundra 45 Cooler',
+    price: 349,
+    description: 'Yeti Tundra 45 Cooler - White',
+    category: 'Sports',
+    image: 'https://example.com/yeti-tundra45.jpg',
+    rating: {
+      rate: 4.8,
+      count: 2356,
+    },
+  },
+  {
+    id: 18,
+    title: 'Garmin Forerunner 945 GPS Running Watch',
+    price: 599,
+    description: 'Garmin Forerunner 945 GPS Running Watch',
+    category: 'Sports',
+    image: 'https://example.com/garmin-forerunner945.jpg',
+    rating: {
+      rate: 4.5,
+      count: 1023,
+    },
+  },
+  {
+    id: 19,
+    title: 'Trek Marlin 7 Mountain Bike',
+    price: 799,
+    description: 'Trek Marlin 7 Mountain Bike - 29" Wheels',
+    category: 'Sports',
+    image: 'https://example.com/trek-marlin7.jpg',
+    rating: {
+      rate: 4.7,
+      count: 615,
+    },
+  },
+  {
+    id: 20,
+    title: 'Osprey Atmos AG 65 Backpack',
+    price: 269,
+    description: 'Osprey Atmos AG 65 Backpack - Men\'s',
+    category: 'Sports',
+    image: 'https://example.com/osprey-atmos-ag65.jpg',
+    rating: {
+      rate: 4.6,
+      count: 1427,
+    },
+  },
+]

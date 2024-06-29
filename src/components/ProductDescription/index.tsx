@@ -43,7 +43,7 @@ export function ProductDescription({product}: Props){
                     </ReviewsText>
                 </ReviewsData>
                 <ReviewsText>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit impedit quisquam voluptatum earum. Sint quaerat nihil reiciendis, voluptate aperiam sunt quidem vero facere, officiis ea quod magni, animi impedit quas.
+                    {product?.description}
                 </ReviewsText>
                 <SocialNetworksIconsWrapper>
                     <EnvelopeIcon Path={Path}/>
