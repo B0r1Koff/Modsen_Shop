@@ -115,6 +115,7 @@ export const AddToCartButton = styled.div`
 
 export const HoverButton = styled.button`
   all: unset;
+  cursor: pointer;
   width: 50px;
   height: 50px;
   margin: 5px;

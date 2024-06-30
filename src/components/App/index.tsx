@@ -23,8 +23,8 @@ export function App(){
         });
         if(store.getState().products.value.length === 0){
             dispatch(switchProductsState(RESERVE_PRODUCTS_ARRAY));
-        }
-      }, []);
+        }       
+    }, []);
 
     return(
         <ThemeProvider theme={useSelector((state: any) => state.currentTheme.value)}>

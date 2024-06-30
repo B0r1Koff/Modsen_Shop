@@ -112,9 +112,6 @@ export const SimilarItemsWrapper = styled.div`
     justify-content: space-between;
     margin-bottom: 50px;
     
-    @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
-        overflow-x: scroll;
-    }
     @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
         flex-direction: column;
     }
