@@ -35,6 +35,7 @@ export const ButtonContainer = styled.div`
 
 export const Input = styled.input`
     margin-top: 50px;
+    width: 100%;
     border: none;
     outline: none;
     cursor: pointer;
@@ -44,12 +45,10 @@ export const Input = styled.input`
     font-family: ${(props) => props.theme.typefaces.font_primary};
 
     @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
-        width: 40%;
         font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
         font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
     }
     @media (width < ${(props) => props.theme.device_sizing.size.laptop}) {
-        width: 100%;
         font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
         font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
     }
@@ -95,4 +94,56 @@ export const SubmitButton = styled.button`
         color: ${(props) => props.theme.main_colours.black};
         background-color: ${(props) => props.theme.main_colours.white};
     }
+`
+
+export const InputWrapper = styled.div`
+    @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        width: 40%;
+    }
+    @media (width < ${(props) => props.theme.device_sizing.size.laptop}) {
+        width: 100%;
+    }
+
+    display: flex;
+    flex-direction: column;
+`
+
+export const ErrorMessage = styled.p`
+    @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.pc.body.small.size};
+        font-weight: ${(props) => props.theme.typefaces.pc.body.small.weight};
+    }
+    @media (width < ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+        font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+    }
+
+    color: ${(props) => props.theme.service_colours.errors};
+`
+
+export const Select = styled.select`
+    margin-top: 50px;
+    width: 100%;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background-color: ${(props) => props.theme.main_colours.white};
+    border-bottom: 1px solid ${(props) => props.theme.neutral_colours.grey};
+    color:  ${(props) => props.theme.neutral_colours.dark_grey};
+    font-family: ${(props) => props.theme.typefaces.font_primary};
+
+    @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+        font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+    }
+    @media (width < ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+        font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+    }
+
+    ::-webkit-autofill {
+    background-color: red;
+  }
 `

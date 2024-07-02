@@ -1,39 +1,71 @@
 import { useFormik, Form, Field } from "formik"
 import * as FormStyles from "./styled"
+import * as yup from "yup";
 
 export function ContactUsForm(){
+    const validationSchema = yup.object().shape({
+        firstName: yup
+            .string()
+            .min(3, "Name must be at least 3 characters long")
+            .required("Required"),
+        lastName: yup
+            .string()
+            .min(3, "Lastname must be at least 3 characters long")
+            .required("Required"),
+        email: yup
+            .string()
+            .email('Invalid email')
+            .required('Email is required'),
+        subject: yup
+          .string()
+          .oneOf(["Errors", "Idea", "Other"], "Invalid Type")
+          .required("Required"),
+        message: yup
+          .string()
+          .required("Required")
+      });
+
     const formik = useFormik({
             initialValues:{ firstName: "", lastName: "", email: "", subject: "", message: ""},
             onSubmit: async values => {
                 await new Promise((resolve) => setTimeout(resolve, 500));
                 alert(JSON.stringify(values, null, 2));
             },
+            validationSchema: validationSchema
     })
 
     return(
         <form onSubmit={formik.handleSubmit}>
             <FormStyles.InputsContainer>
-                <FormStyles.Input placeholder="First Name" name="firstName" type="text" onChange={formik.handleChange} value={formik.values.firstName}/>
-                <FormStyles.Input placeholder="Last Name" name="lastName" type="text" onChange={formik.handleChange} value={formik.values.lastName}/>
+                <FormStyles.InputWrapper>
+                    <FormStyles.Input placeholder="First Name" name="firstName" type="text" onChange={formik.handleChange} value={formik.values.firstName}/>
+                    <FormStyles.ErrorMessage>{formik.errors.firstName ? formik.errors.firstName : ""}</FormStyles.ErrorMessage>
+                </FormStyles.InputWrapper>
+                <FormStyles.InputWrapper>
+                    <FormStyles.Input placeholder="Last Name" name="lastName" type="text" onChange={formik.handleChange} value={formik.values.lastName}/>
+                    <FormStyles.ErrorMessage>{formik.errors.lastName ? formik.errors.lastName : ""}</FormStyles.ErrorMessage>
+                </FormStyles.InputWrapper>
             </FormStyles.InputsContainer>
             <FormStyles.InputsContainer>
-                <FormStyles.Input placeholder="Email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email}/>
-                <FormStyles.Input placeholder="Subject" name="subject" type="text" onChange={formik.handleChange} value={formik.values.subject}/>
+                <FormStyles.InputWrapper>
+                    <FormStyles.Input placeholder="Email" name="email" type="email" onChange={formik.handleChange} value={formik.values.email}/>
+                    <FormStyles.ErrorMessage>{formik.errors.email ? formik.errors.email : ""}</FormStyles.ErrorMessage>
+                </FormStyles.InputWrapper>
+                <FormStyles.InputWrapper>
+                    <FormStyles.Select name="subject" onChange={formik.handleChange} value={formik.values.subject}>
+                        <option hidden>Subject</option>
+                        <option value="Errors">Errors</option>
+                        <option value="Idea">Idea</option>
+                        <option value="Other">Other</option>
+                    </FormStyles.Select>
+                    <FormStyles.ErrorMessage>{formik.errors.subject ? formik.errors.subject : ""}</FormStyles.ErrorMessage>
+                </FormStyles.InputWrapper>
             </FormStyles.InputsContainer>
             <FormStyles.ButtonContainer>
                 <FormStyles.MessageInput placeholder="Message" name="message" type="text" onChange={formik.handleChange} value={formik.values.message}/>
+                <FormStyles.ErrorMessage>{formik.errors.message ? formik.errors.message : ""}</FormStyles.ErrorMessage>
                 <FormStyles.SubmitButton type="submit">SEND</FormStyles.SubmitButton>
             </FormStyles.ButtonContainer>
         </form>
     )
-
-    function validateEmail(value: string) {
-        let error;
-        if (!value) {
-          error = 'Required';
-        } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value)) {
-          error = 'Invalid email address';
-        }
-        return error;
-      }
 }
