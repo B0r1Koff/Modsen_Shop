@@ -9,10 +9,11 @@ import { useEffect } from "react"
 import { getProducts } from "src/utils/getProductsForSlider"
 import { useDispatch } from "react-redux"
 import { switchProductsState } from "src/store/products/productsSlice"
-import { CART_ROUTE, ERROR_ROUTE, HOME_ROUTE, PRODUCT_ROUTE, SHOP_ROUTE } from "src/constants/routes"
+import { routes } from "src/constants/routes"
 import { ProductPage } from "src/pages/Product"
 import { RESERVE_PRODUCTS_ARRAY } from "src/constants/reserveProducts"
 import { store } from "src/store/store"
+import { ContactUs } from "src/pages/ContactUs"
 
 export function App(){
     const dispatch = useDispatch();
@@ -30,11 +31,12 @@ export function App(){
         <ThemeProvider theme={useSelector((state: any) => state.currentTheme.value)}>
             <>
                 <Routes>
-                    <Route path={ERROR_ROUTE} element={<ErrorPage/>} />
-                    <Route path={HOME_ROUTE} element={<Home/>} />
-                    <Route path={SHOP_ROUTE} element={<Shop/>} />
-                    <Route path={CART_ROUTE} element={<Cart/>} />
-                    <Route path={PRODUCT_ROUTE + "/:productId"} element={<ProductPage/>}/>
+                    <Route path={routes.ERROR_ROUTE} element={<ErrorPage/>} />
+                    <Route path={routes.HOME_ROUTE} element={<Home/>} />
+                    <Route path={routes.SHOP_ROUTE} element={<Shop/>} />
+                    <Route path={routes.CART_ROUTE} element={<Cart/>} />
+                    <Route path={routes.PRODUCT_ROUTE + "/:productId"} element={<ProductPage/>}/>
+                    <Route path={routes.CONTACT_US_ROUTE} element={<ContactUs/>}/>
                 </Routes>
             </>
         </ThemeProvider>)

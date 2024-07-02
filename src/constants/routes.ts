@@ -1,5 +1,8 @@
-export const ERROR_ROUTE = "*"
-export const HOME_ROUTE = "/"
-export const SHOP_ROUTE = "/Shop"
-export const CART_ROUTE = "/Cart"
-export const PRODUCT_ROUTE = "/Product"
+export const routes = {
+    ERROR_ROUTE : "*",
+    HOME_ROUTE : "/",
+    SHOP_ROUTE : "/Shop",
+    CART_ROUTE : "/Cart",
+    PRODUCT_ROUTE : "/Product",
+    CONTACT_US_ROUTE : "/Contact"
+}

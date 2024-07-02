@@ -5,7 +5,7 @@ import * as CartComponent from "./styled"
 import { Product } from 'src/utils/getProductsForSlider';
 import {ReactComponent as EyeIcon} from "../../assets/Eye.svg"
 import { useNavigate } from 'react-router';
-import { PRODUCT_ROUTE } from 'src/constants/routes';
+import { routes } from 'src/constants/routes';
 import { useDispatch } from 'react-redux';
 import { CartItem, addToCart, updateCartItem } from 'src/store/cart/cartSlice';
 import { useSelector } from 'react-redux';
@@ -41,7 +41,7 @@ export function Cart() {
                         <CartComponent.Price>$ {item.product?.price}</CartComponent.Price>
                       </CartComponent.TextWrapper>
                       <CartComponent.AddToCartButton>
-                        <CartComponent.HoverButton onClick={() => navigate(PRODUCT_ROUTE + "/" + item.product?.id)}>
+                        <CartComponent.HoverButton onClick={() => navigate(routes.PRODUCT_ROUTE + "/" + item.product?.id)}>
                           <EyeIcon/>
                         </CartComponent.HoverButton>
                       </CartComponent.AddToCartButton>

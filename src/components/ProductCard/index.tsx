@@ -10,7 +10,7 @@ import {
 import {ReactComponent as CartIcon} from "../../assets/shopping_cart.svg"
 import {ReactComponent as EyeIcon} from "../../assets/Eye.svg"
 import { useNavigate } from 'react-router';
-import { PRODUCT_ROUTE } from 'src/constants/routes';
+import { routes } from 'src/constants/routes';
 import { useDispatch } from 'react-redux';
 import { addToCart } from 'src/store/cart/cartSlice';
 
@@ -35,7 +35,7 @@ export default function ProductCard({name, price, url, id} : Props) {
           <HoverButton onClick={() => handleAddToCart(id, 1)}>
             <CartIcon/>
           </HoverButton>
-          <HoverButton onClick={() => navigate(PRODUCT_ROUTE + "/" + id)}>
+          <HoverButton onClick={() => navigate(routes.PRODUCT_ROUTE + "/" + id)}>
             <EyeIcon/>
           </HoverButton>
         </AddToCartButton>

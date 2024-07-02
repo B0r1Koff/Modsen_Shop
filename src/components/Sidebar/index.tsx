@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router';
 import { switchMenuState } from 'src/store/sidebar/sidebarSlice';
 import { Bar, ButtonsWrapper, Button } from './styled';
-import { HOME_ROUTE, SHOP_ROUTE } from 'src/constants/routes';
+import { routes } from 'src/constants/routes';
 
 interface Props{
   isProfileOpened: boolean;
@@ -22,9 +22,9 @@ export default function Sidebar({isProfileOpened, setIsProfileOpened} : Props) {
   return (
       <Bar isOpened={useSelector((state: any) => state.isMenuOpened.value)}>
         <ButtonsWrapper>
-          <Button onClick={() => onRedirectClick(HOME_ROUTE)}>Home</Button>
-          <Button onClick={() => onRedirectClick(SHOP_ROUTE)}>Shop</Button>
-          <Button onClick={() => onRedirectClick(HOME_ROUTE)}>Contact</Button>
+          <Button onClick={() => onRedirectClick(routes.HOME_ROUTE)}>Home</Button>
+          <Button onClick={() => onRedirectClick(routes.SHOP_ROUTE)}>Shop</Button>
+          <Button onClick={() => onRedirectClick(routes.CONTACT_US_ROUTE)}>Contact</Button>
         </ButtonsWrapper>
       </Bar>
   );

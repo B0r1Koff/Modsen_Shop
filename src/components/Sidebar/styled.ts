@@ -27,4 +27,5 @@ export const Button = styled.li`
   font-size: ${(props) => props.theme.typefaces.mobile.heading[1].size};
   font-weight: ${(props) => props.theme.typefaces.mobile.heading[1].weight};
   font-family: ${(props) => props.theme.typefaces.font_primary};
+  color: ${(props) => props.theme.main_colours.black};
 `;

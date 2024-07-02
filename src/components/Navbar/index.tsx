@@ -6,6 +6,7 @@ import Sidebar from '../Sidebar';
 import ToggleSwitch from '../ToggleSwitch';
 import {ReactComponent as CrossIcon} from "../../assets/Cross.svg"
 import {ReactComponent as MenuIcon} from "../../assets/Menu.svg"
+import { useSelector } from 'react-redux';
 import {
   Nav,
   HomeLink,
@@ -16,10 +17,12 @@ import {
   CartButton,
   ShopButton,
   MenuButton,
-  Path
+  Path,
+  NumberOfCartElements
 } from './styled';
-import { CART_ROUTE, HOME_ROUTE, SHOP_ROUTE } from 'src/constants/routes';
+import { routes } from 'src/constants/routes';
 import { CartIcon } from 'src/assets/Cart';
+import { store } from 'src/store/store';
 
 export function Navbar() {
   const navigate = useNavigate();
@@ -30,18 +33,24 @@ export function Navbar() {
     <>
       <Header>
         <Nav>
-          <HomeLink onClick={() => onHomeRedirectClick(HOME_ROUTE)}>
+          <HomeLink onClick={() => onHomeRedirectClick(routes.HOME_ROUTE)}>
             <ShopName className="ShopName">
               Modsen S<ShopNameSpan>HOPPE</ShopNameSpan>
             </ShopName>
           </HomeLink>
           <HeaderButtonsWrapper>
-            <ShopButton onClick={() => onHomeRedirectClick(SHOP_ROUTE)}>
+            <ShopButton isOpened={window.location.pathname === routes.SHOP_ROUTE} onClick={() => onHomeRedirectClick(routes.SHOP_ROUTE)}>
               Shop
             </ShopButton>
             <ToggleSwitch />
-            <CartButton onClick={() => navigate(CART_ROUTE)}>
-              <CartIcon Path={Path}/>  
+            <CartButton isOpened={window.location.pathname === routes.CART_ROUTE} onClick={() => navigate(routes.CART_ROUTE)}>
+              <CartIcon Path={Path}/>
+              <NumberOfCartElements 
+                number={useSelector((state: any) => state.cart.items)}
+                isActive={store.getState().cart.items.length === 0}
+              >
+                {store.getState().cart.items.length}
+              </NumberOfCartElements>  
             </CartButton>
             <MenuButton onClick={() => onMenuButtonClick()}>
               {!isProfileOpened ? (

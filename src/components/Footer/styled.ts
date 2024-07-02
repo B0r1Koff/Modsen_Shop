@@ -77,6 +77,10 @@ export const Button = styled.li`
     font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
     font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
   }
+
+  :hover{
+    color: ${(props) => props.theme.main_colours.black};
+  }
 `;
 
 export const EmailInputWrapper = styled.div`

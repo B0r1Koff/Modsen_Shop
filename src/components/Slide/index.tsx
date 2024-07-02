@@ -6,7 +6,7 @@ import {
   Price,
 } from './styled';
 import { useNavigate } from 'react-router';
-import { PRODUCT_ROUTE } from 'src/constants/routes';
+import { routes } from 'src/constants/routes';
 
 interface Props{
   id: number,
@@ -23,7 +23,7 @@ export default function Slide({id, url, index, price, title} : Props) {
       <DescriptionWrapper>
         <Text>{title}</Text>
         <Price>$ {price}</Price>
-        <Button onClick={() => navigate(PRODUCT_ROUTE + "/" + id)}>View Product</Button>
+        <Button onClick={() => navigate(routes.PRODUCT_ROUTE + "/" + id)}>View Product</Button>
       </DescriptionWrapper>
     </SlideWrapper>
   );

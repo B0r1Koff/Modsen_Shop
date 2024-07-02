@@ -2,7 +2,7 @@ import { ErrorPageWrapper, Container, MainText, MessageText, RedirectButton } fr
 import Navbar from "src/components/Navbar";
 import Footer from "src/components/Footer";
 import { useNavigate } from "react-router";
-import { HOME_ROUTE } from "src/constants/routes";
+import { routes } from "src/constants/routes";
 
 export function ErrorPage() {
   const navigate = useNavigate();
@@ -19,7 +19,7 @@ export function ErrorPage() {
           <br/>
           back to home and start again
         </MessageText>
-        <RedirectButton onClick={() => navigate(HOME_ROUTE)}>
+        <RedirectButton onClick={() => navigate(routes.HOME_ROUTE)}>
           Homepage
         </RedirectButton>
       </Container>

@@ -18,14 +18,17 @@ import {
   EmailWithArrowWrapper,
   Path
 } from './styled';
-import Arrow from "../../assets/Arrow.svg"
 import {ReactComponent as ArrowIcon} from "../../assets/Arrow.svg"
 import { TwitterIcon } from 'src/assets/Twitter';
 import { InstagramIcon } from 'src/assets/Instagram';
 import { FacebookIcon } from 'src/assets/Facebook';
 import { LinkedInIcon } from 'src/assets/LinkedIn';
+import { useNavigate } from 'react-router';
+import { routes } from 'src/constants/routes';
 
 export default function Footer() {
+  const navigate = useNavigate();
+
   return (
       <AllElementsWrapper>
         <ButtonsWrapper>
@@ -44,7 +47,7 @@ export default function Footer() {
             </CheckBoxText>
           </CheckBoxWrapper>
           <Buttons>
-            <Button>CONTACT</Button>
+            <Button onClick={() => navigate(routes.CONTACT_US_ROUTE)}>CONTACT</Button>
             <Button>TERMS OF SERVICES</Button>
             <Button>SHIPPING AND RETURNES</Button>
           </Buttons>

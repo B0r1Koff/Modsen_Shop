@@ -14,10 +14,14 @@ export const Header = styled.header`
 export const Nav = styled.div`
   width: 86%;
   height: 6vh;
+  padding-bottom: 3px;
   display: flex;
   flex-direction: row;
   border-bottom: 1px solid ${(props) => props.theme.neutral_colours.grey};
   align-items: center;
+  @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
+    padding-bottom: 6px;
+  }
 `;
 
 export const ShopName = styled.h2`
@@ -53,13 +57,21 @@ export const HeaderButtonsWrapper = styled.div`
   align-items: end;
 `;
 
-export const CartButton = styled.div`
+export const CartButton = styled.div<{isOpened: boolean}>`
   cursor: pointer;
   height: 52px;
+  width: 40px;
   display: flex;
+  flex-direction: row;
+  position: relative;
+  justify-content: center;
   align-items: center;
   text-decoration: none;
   margin: 0px 15px 0px 40px;
+
+  ${(props) => props.isOpened && `
+    border-bottom: 1px solid ${props.theme.main_colours.black};
+  `}
   
   >.svg{
     fill: ${(props) => props.theme.main_colours.black};
@@ -71,7 +83,7 @@ export const CartImg = styled.img`
   height: 24px;
 `;
 
-export const ShopButton = styled.div`
+export const ShopButton = styled.div<{isOpened: boolean}>`
   user-select: none;
   cursor: pointer;
   height: 52px;
@@ -88,6 +100,10 @@ export const ShopButton = styled.div`
   @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
     display: none;
   }
+
+  ${(props) => props.isOpened && `
+    border-bottom: 1px solid ${props.theme.main_colours.black};
+  `}
 `;
 
 export const Path = styled.path`
@@ -111,3 +127,21 @@ export const MenuButton = styled.div`
     fill: ${(props) => props.theme.main_colours.black};
   }
 `;
+
+export const NumberOfCartElements = styled.div<{number: number, isActive: boolean}>`
+  border: 1px solid ${(props) => props.theme.main_colours.black};
+  background-color: ${(props) => props.theme.main_colours.white};
+  color: ${(props) => props.theme.main_colours.black};
+  user-select: none;
+  border-radius: 100%;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 50%;
+
+  ${(props) => props.isActive && "display: none;"}
+`
