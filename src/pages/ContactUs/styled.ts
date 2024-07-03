@@ -5,11 +5,10 @@ export const ContactUsPageWrapper = styled.div`
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
     background-color: ${(props) => props.theme.main_colours.white};
 `
 
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.div<{isOpened: boolean}>`
     width: 86%;
     display: flex;
     flex-direction: column;
@@ -20,6 +19,12 @@ export const ContentWrapper = styled.div`
     @media (width < ${(props) => props.theme.device_sizing.size.laptop}) {
       align-items: start;
     }
+
+    ${(props) =>
+    props.isOpened &&
+    `
+        display: none;
+  `}
 `
 
 export const Title = styled.p`

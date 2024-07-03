@@ -2,12 +2,13 @@ import Navbar from "src/components/Navbar"
 import * as ContactUsPage from "./styled"
 import Footer from "src/components/Footer"
 import { ContactUsForm } from "src/components/ContactUsForm"
+import { useSelector } from "react-redux"
 
 export function ContactUs(){
     return(
         <ContactUsPage.ContactUsPageWrapper>
             <Navbar/>
-            <ContactUsPage.ContentWrapper>
+            <ContactUsPage.ContentWrapper isOpened={useSelector((state: any) => state.isMenuOpened.value)}>
                 <ContactUsPage.DesctopTitle>
                     Contact Us
                 </ContactUsPage.DesctopTitle>

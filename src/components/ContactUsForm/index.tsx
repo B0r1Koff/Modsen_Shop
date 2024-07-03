@@ -1,6 +1,7 @@
 import { useFormik, Form, Field } from "formik"
 import * as FormStyles from "./styled"
 import * as yup from "yup";
+import * as emailjs from "@emailjs/browser"
 
 export function ContactUsForm(){
     const validationSchema = yup.object().shape({
@@ -27,9 +28,15 @@ export function ContactUsForm(){
 
     const formik = useFormik({
             initialValues:{ firstName: "", lastName: "", email: "", subject: "", message: ""},
-            onSubmit: async values => {
-                await new Promise((resolve) => setTimeout(resolve, 500));
-                alert(JSON.stringify(values, null, 2));
+            onSubmit: values => {
+                try{
+                    emailjs.send('service_kodnaga', 'template_d0ele2h', values, 'WlxqKFoUWbFHeWzb1');
+                    alert("Сообщение успешно отправлено!")
+                    formik.resetForm()
+                }catch(e){
+                    alert(e)
+                    return
+                }
             },
             validationSchema: validationSchema
     })

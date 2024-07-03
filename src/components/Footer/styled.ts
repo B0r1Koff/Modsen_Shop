@@ -215,11 +215,25 @@ export const EmailButton = styled.button`
   border-bottom: 1px solid ${(props) => props.theme.main_colours.black};
   background: transparent;
   padding-bottom: 5px;
+  cursor: pointer;
 `;
 
-export const EmailWithArrowWrapper = styled.div`
+export const EmailWithArrowWrapper = styled.form`
   display: flex;
   flex-direction: row;
   width: 100%;
   justify-content: end;
 `;
+
+export const ErrorMessage = styled.p`
+    @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.pc.body.small.size};
+        font-weight: ${(props) => props.theme.typefaces.pc.body.small.weight};
+    }
+    @media (width < ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.mobile.body.small.size};
+        font-weight: ${(props) => props.theme.typefaces.mobile.body.small.weight};
+    }
+
+    color: ${(props) => props.theme.service_colours.errors};
+`

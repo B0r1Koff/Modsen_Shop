@@ -4,8 +4,6 @@ import { switchMenuState } from 'src/store/sidebar/sidebarSlice';
 import { useState } from 'react';
 import Sidebar from '../Sidebar';
 import ToggleSwitch from '../ToggleSwitch';
-import {ReactComponent as CrossIcon} from "../../assets/Cross.svg"
-import {ReactComponent as MenuIcon} from "../../assets/Menu.svg"
 import { useSelector } from 'react-redux';
 import {
   Nav,
@@ -18,11 +16,14 @@ import {
   ShopButton,
   MenuButton,
   Path,
+  CrossPath,
   NumberOfCartElements
 } from './styled';
 import { routes } from 'src/constants/routes';
 import { CartIcon } from 'src/assets/Cart';
 import { store } from 'src/store/store';
+import { MenuIcon } from 'src/assets/Menu';
+import { CrossIcon } from 'src/assets/Cross';
 
 export function Navbar() {
   const navigate = useNavigate();
@@ -54,9 +55,9 @@ export function Navbar() {
             </CartButton>
             <MenuButton onClick={() => onMenuButtonClick()}>
               {!isProfileOpened ? (
-                <MenuIcon/>
+                <MenuIcon Path={Path}/>
               ) : (
-                <CrossIcon/>
+                <CrossIcon Path={CrossPath}/>
               )}
             </MenuButton>
           </HeaderButtonsWrapper>

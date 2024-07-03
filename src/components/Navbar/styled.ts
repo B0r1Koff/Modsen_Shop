@@ -17,11 +17,9 @@ export const Nav = styled.div`
   padding-bottom: 3px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   border-bottom: 1px solid ${(props) => props.theme.neutral_colours.grey};
   align-items: center;
-  @media (width < ${(props) => props.theme.device_sizing.size.tablet}) {
-    padding-bottom: 6px;
-  }
 `;
 
 export const ShopName = styled.h2`
@@ -46,7 +44,7 @@ export const ShopNameSpan = styled.span`
 
 export const HomeLink = styled.a`
   text-decoration: none;
-  width: 70%;
+  width: 60%;
 `;
 
 export const HeaderButtonsWrapper = styled.div`
@@ -67,7 +65,7 @@ export const CartButton = styled.div<{isOpened: boolean}>`
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  margin: 0px 15px 0px 40px;
+  margin: 0px 5px 0px 35px;
 
   ${(props) => props.isOpened && `
     border-bottom: 1px solid ${props.theme.main_colours.black};
@@ -108,6 +106,10 @@ export const ShopButton = styled.div<{isOpened: boolean}>`
 
 export const Path = styled.path`
   fill: ${(props) => props.theme.main_colours.black};
+`;
+
+export const CrossPath = styled.path`
+  stroke: ${(props) => props.theme.main_colours.black};
 `;
 
 export const MenuButton = styled.div`

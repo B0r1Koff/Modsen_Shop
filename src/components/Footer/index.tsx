@@ -16,29 +16,56 @@ import {
   Line,
   EmailButton,
   EmailWithArrowWrapper,
-  Path
+  Path,
+  ErrorMessage
 } from './styled';
-import {ReactComponent as ArrowIcon} from "../../assets/Arrow.svg"
+import * as yup from "yup";
+import * as emailjs from "@emailjs/browser"
 import { TwitterIcon } from 'src/assets/Twitter';
 import { InstagramIcon } from 'src/assets/Instagram';
 import { FacebookIcon } from 'src/assets/Facebook';
 import { LinkedInIcon } from 'src/assets/LinkedIn';
 import { useNavigate } from 'react-router';
 import { routes } from 'src/constants/routes';
+import { useFormik } from 'formik';
+import { ArrowIcon } from 'src/assets/Arrow';
 
 export default function Footer() {
   const navigate = useNavigate();
+
+  const validationSchema = yup.object().shape({
+    email: yup
+        .string()
+        .email('Invalid email')
+        .required('Email is required'),
+  });
+
+  const formik = useFormik({
+        initialValues:{ email: ""},
+        onSubmit: values => {
+            try{
+                emailjs.send('service_kodnaga', 'template_x887d0g', values, 'WlxqKFoUWbFHeWzb1');
+                alert("Сообщение успешно отправлено!")
+                formik.resetForm()
+            }catch(e){
+                alert(e)
+                return
+            }
+        },
+        validationSchema: validationSchema
+})
 
   return (
       <AllElementsWrapper>
         <ButtonsWrapper>
           <EmailInputWrapper>
-            <EmailWithArrowWrapper>
-              <EmailInput placeholder="Give an email, get the newsletter" />
-              <EmailButton>
-                <ArrowIcon/>
+            <EmailWithArrowWrapper onSubmit={formik.handleSubmit}>
+              <EmailInput placeholder="Give an email, get the newsletter" name='email' onChange={formik.handleChange} value={formik.values.email}/>
+              <EmailButton type='submit'>
+                <ArrowIcon Path={Path}/>
               </EmailButton>
             </EmailWithArrowWrapper>
+            <ErrorMessage>{formik.errors.email ? formik.errors.email : ""}</ErrorMessage>
           </EmailInputWrapper>
           <CheckBoxWrapper>
             <CheckBox type="checkbox" />
