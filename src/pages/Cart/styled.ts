@@ -287,3 +287,40 @@ export const FromCartButton = styled.button`
         background: ${(props) => props.theme.main_colours.black};
     }
 `
+
+export const CreateOrderButton = styled.button<{isActive: boolean}>`
+    ${(props) => props.isActive && `display: none;`}
+    user-select: none;
+    cursor: pointer;
+    font-family: ${(props) => props.theme.typefaces.font_primary};
+    color: ${(props) => props.theme.main_colours.black};
+    background: ${(props) => props.theme.main_colours.white};
+    width: 200px;
+    height: 40px;
+    border: none;
+    border: 1px solid ${(props) => props.theme.main_colours.black};
+    border-radius: 5px;
+    margin-bottom: 50px;
+
+    @media (width >= ${(props) => props.theme.device_sizing.size.laptop}) {
+        font-size: ${(props) => props.theme.typefaces.pc.heading[5].size};
+        font-weight: ${(props) => props.theme.typefaces.pc.heading[5].weight};
+
+        :hover {
+            color: ${(props) => props.theme.main_colours.white};
+            border: 1px solid ${(props) => props.theme.main_colours.black};
+            background: ${(props) => props.theme.main_colours.black};
+        }
+    }
+
+    @media (width <= ${(props) => props.theme.device_sizing.size.tablet}) {
+        font-size: ${(props) => props.theme.typefaces.mobile.heading[3].size};
+        font-weight: ${(props) => props.theme.typefaces.mobile.heading[3].weight};
+    }
+
+    :active {
+        color: ${(props) => props.theme.main_colours.white};
+        border: 1px solid ${(props) => props.theme.main_colours.black};
+        background: ${(props) => props.theme.main_colours.black};
+    }
+`

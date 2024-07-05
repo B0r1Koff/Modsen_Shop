@@ -7,7 +7,7 @@ import {ReactComponent as EyeIcon} from "../../assets/Eye.svg"
 import { useNavigate } from 'react-router';
 import { routes } from 'src/constants/routes';
 import { useDispatch } from 'react-redux';
-import { CartItem, addToCart, updateCartItem } from 'src/store/cart/cartSlice';
+import { CartItem, updateCartItem } from 'src/store/cart/cartSlice';
 import { useSelector } from 'react-redux';
 
 export function Cart() {
@@ -28,6 +28,9 @@ export function Cart() {
         <CartComponent.CartTitle>
           {store.getState().cart.items.length === 0 ? "Cart is empty" : "Cart"}
         </CartComponent.CartTitle>
+        <CartComponent.CreateOrderButton isActive={store.getState().cart.items.length === 0} onClick={() => handleCreateOrder()}>
+          Оформить заказ
+        </CartComponent.CreateOrderButton>
           {
             cartItemsWithProducts.length > 0 &&
             <CartComponent.ProductsWrapper>
@@ -65,7 +68,11 @@ export function Cart() {
     dispatch(updateCartItem({ productId, quantity }));
   };
 
-  function handleAddToCart(product: Product, quantity: number){
-    dispatch(addToCart({ productId: product.id, quantity }));
+  function handleCreateOrder(){
+    if(window.confirm("Подтвердите оформление заказа!")){
+        cart.map(item => {
+        dispatch(updateCartItem({ productId: item.productId, quantity: 0 }));
+      })
+    }
   };
 }
